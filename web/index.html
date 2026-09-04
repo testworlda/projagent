@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project-Agent 多智能体项目管理系统</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+  <!-- 顶部导航栏（§10.1） -->
+  <header id="topbar">
+    <div class="brand">
+      <div class="logo">PA</div>
+      <div class="brand-text">
+        <div class="brand-title">Project-Agent</div>
+        <div class="brand-sub">多智能体项目管理系统</div>
+      </div>
+    </div>
+    <div class="project-meta" id="projectMeta">
+      <span class="project-name">-</span>
+      <span class="phase-badge" id="phaseBadge">-</span>
+    </div>
+    <div class="global-search">
+      <input type="text" id="globalSearch" placeholder="搜索 需求/任务/通信/提交...">
+    </div>
+    <div class="top-actions">
+      <button id="btnRunStep" class="btn btn-primary btn-sm" title="推进一次 Agent 交互演示">▶ 运行演示</button>
+      <button id="btnReset" class="btn btn-ghost btn-sm" title="重置演示数据">重置</button>
+      <div class="avatar" title="user">U</div>
+    </div>
+  </header>
+  <!-- 三栏主体 -->
+  <div id="body">
+    <!-- 左侧导航 -->
+    <nav id="sidebar">
+      <div class="nav-section">
+        <div class="nav-item active" data-view="dashboard"><span class="nav-icon">◉</span>总览</div>
+        <div class="nav-item" data-view="phase"><span class="nav-icon">▤</span>阶段</div>
+        <div class="nav-item" data-view="role"><span class="nav-icon">☻</span>角色</div>
+        <div class="nav-item" data-view="requirement"><span class="nav-icon">◎</span>需求</div>
+        <div class="nav-item" data-view="communication"><span class="nav-icon">⇄</span>通信</div>
+        <div class="nav-item" data-view="commit"><span class="nav-icon">⑂</span>提交</div>
+        <div class="nav-item" data-view="review"><span class="nav-icon">✓</span>评审</div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-title">交互</div>
+        <div class="nav-item" data-view="chat"><span class="nav-icon">💬</span>聊天</div>
+        <div class="nav-item" data-view="code"><span class="nav-icon">◈</span>代码浏览</div>
+      </div>
+      <div class="nav-section">
+        <div class="nav-title">规范</div>
+        <div class="nav-item" data-view="commitcheck"><span class="nav-icon">⚙</span>Commit 校验</div>
+      </div>
+    </nav>
+    <!-- 中央工作区 -->
+    <main id="main">
+      <div id="viewTitle" class="view-title"></div>
+      <div id="viewContent"></div>
+    </main>
+    <!-- 右侧上下文面板 -->
+    <aside id="rightPanel">
+      <div id="rightPanelContent" class="right-panel-content">
+        <div class="panel-placeholder">点击任意 Commit / 通信 / 任务 / 需求查看详情</div>
+      </div>
+    </aside>
+  </div>
+  <!-- 底部状态栏（§10.1） -->
+  <footer id="statusbar">
+    <span>Git 基线: <b id="sbCommit">-</b></span>
+    <span>活跃 Agent: <b id="sbAgents">-</b></span>
+    <span>未读通信: <b id="sbComms">-</b></span>
+    <span class="spacer"></span>
+    <span id="sbHealth">系统健康度: <b class="ok">正常</b></span>
+  </footer>
+</div>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/views.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
