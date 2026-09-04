@@ -1,0 +1,9 @@
+# 运行时生成数据（首次运行自动重建）
+data/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 系统文件
+.DS_Store
